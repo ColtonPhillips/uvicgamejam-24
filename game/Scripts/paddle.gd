@@ -10,7 +10,7 @@ var is_ball_started := false
 @export var speed := 400
 @export var camera: Camera2D
 
-#@onready var ball = $"../Ball" as Ball
+@onready var ball = $"../Ball" as Ball
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D 
 
 func _ready():
@@ -40,7 +40,7 @@ func _input(event):
 		direction = Vector2.ZERO
 		
 	if direction != Vector2.ZERO && !is_ball_started:
-		#ball.start_ball()
+		ball.start_ball()
 		is_ball_started = true
 
 func on_ball_lost():
