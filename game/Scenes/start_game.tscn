@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cirbyi3pmn0kj"]
+
+[ext_resource type="Script" path="res://Scripts/start_game.gd" id="1_r0l32"]
+
+[node name="StartGame" type="Node"]
+script = ExtResource("1_r0l32")
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 812.0
+offset_top = 667.0
+offset_right = 1147.0
+offset_bottom = 807.0
+text = "START GAME"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
