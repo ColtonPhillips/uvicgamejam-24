@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cegxvl7t72hal"]
 
-[ext_resource type="Texture2D" uid="uid://c35kf4q0smxai" path="res://Assets/BGArt.png" id="1_1ka64"]
 [ext_resource type="PackedScene" uid="uid://cmwnuhkpe57qf" path="res://Scenes/paddle.tscn" id="1_gjttg"]
+[ext_resource type="Texture2D" uid="uid://dmifc5reou1ti" path="res://Assets/BGArt.jpg" id="1_ij1ux"]
 [ext_resource type="PackedScene" uid="uid://kfy3ukhqt013" path="res://Scenes/ball.tscn" id="2_p8dgk"]
 [ext_resource type="PackedScene" uid="uid://7ubiruk0qfs3" path="res://Scenes/wall.tscn" id="3_02ui3"]
 
@@ -10,26 +10,26 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(-185, 9.99997)
+position = Vector2(-15.9999, -12)
 scale = Vector2(2.33941, 2.30769)
-texture = ExtResource("1_1ka64")
+texture = ExtResource("1_ij1ux")
 
 [node name="Walls" type="Node" parent="."]
 
 [node name="UpperWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(-33, -407)
+position = Vector2(-15.0001, -407)
 
 [node name="LeftWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(-806, 80)
+position = Vector2(-788, 80)
 rotation = 1.5708
 
 [node name="RightWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(397, 185)
+position = Vector2(415, 185)
 rotation = 1.5708
 
 [node name="Paddle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_gjttg")]
-position = Vector2(11, 462)
+position = Vector2(29, 462)
 camera = NodePath("../Camera2D")
 
 [node name="Ball" parent="." instance=ExtResource("2_p8dgk")]
-position = Vector2(9, 7)
+position = Vector2(27, 7)
