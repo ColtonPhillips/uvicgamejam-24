@@ -6,12 +6,12 @@ signal life_lost
 
 const VELOCITY_LIMIT = 40
 
-@export var ball_speed = 15
+@export var ball_speed = 20
 @export var lifes = 3
+@export var speed_up_factor = 1.01
 #@export var death_zone: DeathZone
 #@export var ui: UI
 
-var speed_up_factor = 1.05
 var start_position: Vector2
 var last_collider_id
 
@@ -33,10 +33,11 @@ func _physics_process(delta):
 	#if collider is Brick:
 		#collider.decrease_level()
 		#
-	#if (collider is Brick or collider is Paddle):
-		#ball_collision(collider)
-	#else:
-		#velocity = velocity.bounce(collision.get_normal())
+	if (collider is Paddle):
+	#if (collider is Brick or collider is Paddle):	
+		ball_collision(collider)
+	else:
+		velocity = velocity.bounce(collision.get_normal())
 	
 	
 func start_ball():
@@ -80,7 +81,8 @@ func ball_collision(collider):
 	#
 	new_velocity.y = sqrt(absf(velocity_xy* velocity_xy - new_velocity.x * new_velocity.x)) * (-1 if velocity.y > 0 else 1)
 	var speed_multiplier = speed_up_factor if collider is Paddle else 1
-	
+	var nnn = (new_velocity * speed_multiplier).limit_length(VELOCITY_LIMIT)
+	if nnn != velocity: print ("!")
 	velocity = (new_velocity * speed_multiplier).limit_length(VELOCITY_LIMIT)
 	
 	
