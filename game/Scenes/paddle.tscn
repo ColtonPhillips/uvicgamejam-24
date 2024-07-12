@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/paddle.gd" id="1_edjpi"]
 [ext_resource type="Texture2D" uid="uid://b72ppepb1g2ts" path="res://Assets/PaddleCat.png" id="2_ojvxn"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mq0us"]
-radius = 52.5
-height = 376.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k37m3"]
+size = Vector2(94, 340)
 
 [node name="Paddle" type="RigidBody2D"]
 collision_layer = 2
@@ -19,4 +18,4 @@ texture = ExtResource("2_ojvxn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_mq0us")
+shape = SubResource("RectangleShape2D_k37m3")

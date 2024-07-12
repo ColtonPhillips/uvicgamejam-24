@@ -4,16 +4,14 @@ class_name Ball
 
 signal life_lost
 
-const VELOCITY_LIMIT = 40
+const VELOCITY_LIMIT = 100
 
-@export var ball_speed = 20
+@export var ball_speed = 17
 @export var lifes = 3
-@export var speed_up_factor = 1.01
-#@export var death_zone: DeathZone
+@export var death_zone: DeathZone
 @export var ui: UI
 
-@export var death_zone: DeathZone
-
+var speed_up_factor := 1.12
 var start_position: Vector2
 var last_collider_id
 
@@ -32,14 +30,16 @@ func _physics_process(delta):
 		return
 		
 	var collider = collision.get_collider()
-	#if collider is Brick:
-		#collider.decrease_level()
-		#
-	if (collider is Paddle):
-	#if (collider is Brick or collider is Paddle):	
+	if collider is Brick:
+		collider.decrease_level()
+		
+	if ( collider is Paddle):
 		ball_collision(collider)
+	elif (collider is Brick): 
+		velocity = velocity.bounce(collision.get_normal())
 	else:
 		velocity = velocity.bounce(collision.get_normal())
+	print (velocity.length())
 	
 	
 func start_ball():
@@ -52,7 +52,6 @@ func on_life_lost():
 	lifes -= 1
 	if lifes == 0:
 		ui.game_over()
-		pass
 	else:
 		life_lost.emit()
 		reset_ball()
@@ -76,16 +75,10 @@ func ball_collision(collider):
 	var new_velocity = Vector2.ZERO
 	
 	new_velocity.x = velocity_xy * collision_x
-	
-	#if collider.get_rid() == last_collider_id && collider is Brick:
-		#new_velocity.x = new_velocity.rotated(deg_to_rad(randf_range(-45, 45))).x * 10
-	#else: 
-		#last_collider_id == collider.get_rid()
-	#
 	new_velocity.y = sqrt(absf(velocity_xy* velocity_xy - new_velocity.x * new_velocity.x)) * (-1 if velocity.y > 0 else 1)
-	var speed_multiplier = speed_up_factor if collider is Paddle else 1
-	var nnn = (new_velocity * speed_multiplier).limit_length(VELOCITY_LIMIT)
-	if nnn != velocity: print ("!")
-	velocity = (new_velocity * speed_multiplier).limit_length(VELOCITY_LIMIT)
+	
+	new_velocity = new_velocity.normalized() * velocity_xy
+	
+	velocity = (new_velocity * speed_up_factor).limit_length(VELOCITY_LIMIT)
 	
 	
