@@ -32,9 +32,10 @@ func _process(delta):
 	
 
 func _input(event):
-	if Input.is_action_pressed("left"):
+	var _d = Input.get_axis("left", "right")
+	if _d == -1:
 		direction = Vector2.LEFT
-	elif  Input.is_action_pressed("right"):
+	elif _d == 1:
 		direction = Vector2.RIGHT
 	else:
 		direction = Vector2.ZERO
