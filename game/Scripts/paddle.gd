@@ -14,7 +14,7 @@ var is_ball_started := false
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _ready():
-	#ball.life_lost.connect(on_ball_lost)
+	ball.life_lost.connect(on_ball_lost)
 	camera_rect = camera.get_viewport_rect()
 	half_paddle_width = collision_shape_2d.shape.get_rect().size.y / 2 * scale.y
 

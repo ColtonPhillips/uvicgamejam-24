@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://8aou10aiyrku"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_g6rql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fjlr"]
+bg_color = Color(0.940005, 0.366786, 0.585063, 1)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_g6rql")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LifesLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lifes: 3"
+
+[node name="GameLostContainer" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="GameLostContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7fjlr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameLostContainer/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -29.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameLostContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "YOU HAVE LOST"
+horizontal_alignment = 1
+
+[node name="GameLostButton" type="Button" parent="GameLostContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RESTART GAME"
+
+[connection signal="pressed" from="GameLostContainer/Panel/VBoxContainer/GameLostButton" to="." method="_on_game_lost_button_pressed"]
