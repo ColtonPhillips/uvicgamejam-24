@@ -23,14 +23,14 @@ metadata/_edit_lock_ = true
 [node name="Walls" type="Node" parent="."]
 
 [node name="UpperWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(-50, -418)
+position = Vector2(-81, -653)
 
 [node name="LeftWall" parent="Walls" instance=ExtResource("3_02ui3")]
 position = Vector2(-939, 104)
 rotation = 1.5708
 
 [node name="RightWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(662, 177)
+position = Vector2(879, 133)
 rotation = 1.5708
 
 [node name="IceCubeWall" parent="Walls" instance=ExtResource("3_7tqdg")]

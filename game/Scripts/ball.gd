@@ -27,25 +27,23 @@ func _ready():
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * ball_speed * delta)
 	if (!collision):
+		entered_paddle = false
 		return
 		
 	var collider = collision.get_collider()
-	if collider is Brick:
-		collider.decrease_level()
 		
-	if ( collider is Paddle):
-		ball_collision(collider)
-		
-	elif (collider is Brick): 
+	if (collider is Brick): 
+		collider.decrease_level()		
 		velocity = velocity.bounce(collision.get_normal())
 		velocity = velocity.rotated(randf_range(-0.2, 0.2))
 		
-	
-	else:
+	elif (collider is Wall):
 		velocity = velocity.bounce(collision.get_normal())
 		if abs(velocity.y) < 4 or abs(velocity.x) < 4:
 			velocity = velocity.rotated(randf_range(-0.3, 0.3))
 			print (velocity)
+	if ( collider is Paddle):
+		ball_collision(collider)
 	
 	
 func start_ball():
@@ -67,6 +65,7 @@ func reset_ball():
 	position = start_position
 	velocity = Vector2.ZERO
 
+var entered_paddle = false;
 func ball_collision(collider):
 	var ball_width = collision_shape_2d.shape.get_rect().size.x
 	var ball_center_x = position.x
@@ -83,5 +82,8 @@ func ball_collision(collider):
 	new_velocity.y = sqrt(absf(velocity_xy* velocity_xy - new_velocity.x * new_velocity.x)) * (-1 if velocity.y > 0 else 1)
 	
 	new_velocity = new_velocity.normalized() * velocity_xy
-	
-	velocity = (new_velocity * speed_up_factor).limit_length(VELOCITY_LIMIT)
+	if entered_paddle == false:
+		new_velocity *= speed_up_factor
+		entered_paddle = true
+	velocity = (new_velocity).limit_length(VELOCITY_LIMIT)
+	if velocity.y > 0: velocity.y *= -1

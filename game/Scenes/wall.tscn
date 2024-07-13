@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/wall.gd" id="1_x3snt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scma7"]
-size = Vector2(2000, 20)
+size = Vector2(2000, 251)
 
 [node name="Wall" type="RigidBody2D"]
 collision_layer = 4
@@ -12,4 +12,5 @@ freeze = true
 script = ExtResource("1_x3snt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 115.5)
 shape = SubResource("RectangleShape2D_scma7")
