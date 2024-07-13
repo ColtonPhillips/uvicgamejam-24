@@ -34,8 +34,8 @@ func spawn():
 		for j in COLUMNS:
 			var brick = brick_scene.instantiate() as Brick
 			add_child(brick)
-			brick.set_level(1)
-			brick.set_level(ROWS - i)
+			brick.set_level(i + 1)
+			
 			var x = spawn_position_x + j * (margin.x + brick.get_size().x )
 			var y = spawn_position_y + i * (margin.y + brick.get_size().y )
 			brick.set_position(Vector2(x, y))

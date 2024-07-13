@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://uabhhjpwpi50"]
+
+[ext_resource type="Script" path="res://Scripts/speed_powerup.gd" id="1_d6uf7"]
+[ext_resource type="Texture2D" uid="uid://mrq8ar1uloav" path="res://Assets/SpeedPower.png" id="1_r8y6o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nr32i"]
+radius = 21.5407
+
+[node name="SpeedPowerup" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_d6uf7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.107477, 0.107477)
+texture = ExtResource("1_r8y6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nr32i")

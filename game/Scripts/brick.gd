@@ -39,9 +39,14 @@ func fade_out():
 	tween.tween_property(sprite_2d, "modulate", Color.TRANSPARENT, .5)
 	tween.tween_callback(destroy)
 	
+var scene_to_instance = preload("res://Scenes/speed_powerup.tscn")
 func destroy():
 	queue_free()
 	brick_destroyed.emit()
+	if randi_range(0,100) < 8:
+		var object := scene_to_instance.instantiate()
+		get_parent().add_child(object)
+		object.position = position
 	
 func get_width():
 	return get_size().x

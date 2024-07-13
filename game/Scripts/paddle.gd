@@ -6,7 +6,7 @@ var direction = Vector2.ZERO
 var camera_rect: Rect2
 var half_paddle_width: float
 var is_ball_started = false
-
+var is_sped_up = false
 @export var speed = 400
 @export var camera: Camera2D
 
@@ -20,6 +20,8 @@ func _ready():
 
 func _physics_process(delta):
 	linear_velocity = speed * direction
+	if is_sped_up:
+		linear_velocity *= 1.75
 
 func _process(delta):
 	var camera_start_x = camera.position.x - camera_rect.size.x / 2
@@ -50,3 +52,9 @@ func on_ball_lost():
 
 func get_width():
 	return collision_shape_2d.shape.get_rect().size.x
+
+func on_speed_up():
+	print ("win")
+	is_sped_up = true
+	await get_tree().create_timer(10.0).timeout
+	is_sped_up = false
