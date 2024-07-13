@@ -1,8 +1,8 @@
-extends Node
+extends Node2D
 
 class_name BrickSpawner
 
-const COLUMNS = 5
+const COLUMNS = 7
 const ROWS = 6
 
 @onready var ball = $"../Ball" as Ball
@@ -35,7 +35,7 @@ func spawn():
 			var brick = brick_scene.instantiate() as Brick
 			add_child(brick)
 			brick.set_level(1)
-			#brick.set_level(ROWS - i)
+			brick.set_level(ROWS - i)
 			var x = spawn_position_x + j * (margin.x + brick.get_size().x )
 			var y = spawn_position_y + i * (margin.y + brick.get_size().y )
 			brick.set_position(Vector2(x, y))

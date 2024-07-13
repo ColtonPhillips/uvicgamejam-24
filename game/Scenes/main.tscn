@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cegxvl7t72hal"]
+[gd_scene load_steps=10 format=3 uid="uid://cegxvl7t72hal"]
 
 [ext_resource type="PackedScene" uid="uid://cmwnuhkpe57qf" path="res://Scenes/paddle.tscn" id="1_gjttg"]
 [ext_resource type="Texture2D" uid="uid://dmifc5reou1ti" path="res://Assets/BGArt.jpg" id="1_ij1ux"]
 [ext_resource type="PackedScene" uid="uid://kfy3ukhqt013" path="res://Scenes/ball.tscn" id="2_p8dgk"]
 [ext_resource type="PackedScene" uid="uid://7ubiruk0qfs3" path="res://Scenes/wall.tscn" id="3_02ui3"]
+[ext_resource type="PackedScene" uid="uid://cr6lvoflb6xqq" path="res://Scenes/ice_cube_wall.tscn" id="3_7tqdg"]
 [ext_resource type="PackedScene" uid="uid://nsmn18kxladh" path="res://Scenes/death_zone.tscn" id="5_2vaho"]
 [ext_resource type="PackedScene" uid="uid://8aou10aiyrku" path="res://Scenes/ui.tscn" id="6_j0a08"]
 [ext_resource type="PackedScene" uid="uid://bb528nmxhbibp" path="res://Scenes/brick.tscn" id="7_niqie"]
@@ -14,29 +15,36 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(-15.9999, -12)
-scale = Vector2(2.33941, 2.30769)
+position = Vector2(0.0867767, 1.81198e-05)
+scale = Vector2(0.500045, 0.5)
 texture = ExtResource("1_ij1ux")
+metadata/_edit_lock_ = true
 
 [node name="Walls" type="Node" parent="."]
 
 [node name="UpperWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(-15.0001, -407)
+position = Vector2(-50, -418)
 
 [node name="LeftWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(-788, 80)
+position = Vector2(-939, 104)
 rotation = 1.5708
 
 [node name="RightWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(415, 185)
+position = Vector2(662, 177)
 rotation = 1.5708
 
+[node name="IceCubeWall" parent="Walls" instance=ExtResource("3_7tqdg")]
+position = Vector2(-189, -393)
+
+[node name="CollisionShape2D" parent="Walls/IceCubeWall" index="0"]
+position = Vector2(94, 43.5)
+
 [node name="Paddle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_gjttg")]
-position = Vector2(-150, 451)
+position = Vector2(-151, 452)
 camera = NodePath("../Camera2D")
 
 [node name="Ball" parent="." node_paths=PackedStringArray("death_zone", "ui") instance=ExtResource("2_p8dgk")]
-position = Vector2(-152, 346)
+position = Vector2(-152, 331)
 death_zone = NodePath("../DeathZone")
 ui = NodePath("../UI")
 
@@ -45,10 +53,13 @@ position = Vector2(-63, 958)
 
 [node name="UI" parent="." instance=ExtResource("6_j0a08")]
 
-[node name="BrickSpawner" type="Node" parent="." node_paths=PackedStringArray("spawn_start")]
+[node name="BrickSpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_start")]
+position = Vector2(-138, -153)
 script = ExtResource("7_v0q6d")
 brick_scene = ExtResource("7_niqie")
 spawn_start = NodePath("../Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-268, -145)
+position = Vector2(11, -63)
+
+[editable path="Walls/IceCubeWall"]

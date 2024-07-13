@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://7ubiruk0qfs3"]
+[gd_scene load_steps=3 format=3 uid="uid://7ubiruk0qfs3"]
+
+[ext_resource type="Script" path="res://Scripts/wall.gd" id="1_x3snt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scma7"]
 size = Vector2(2000, 20)
 
 [node name="Wall" type="RigidBody2D"]
 collision_layer = 4
+gravity_scale = 0.0
 freeze = true
+script = ExtResource("1_x3snt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_scma7")

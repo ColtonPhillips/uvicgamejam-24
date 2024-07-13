@@ -35,11 +35,17 @@ func _physics_process(delta):
 		
 	if ( collider is Paddle):
 		ball_collision(collider)
+		
 	elif (collider is Brick): 
 		velocity = velocity.bounce(collision.get_normal())
+		velocity = velocity.rotated(randf_range(-0.2, 0.2))
+		
+	
 	else:
 		velocity = velocity.bounce(collision.get_normal())
-	print (velocity.length())
+		if abs(velocity.y) < 4 or abs(velocity.x) < 4:
+			velocity = velocity.rotated(randf_range(-0.3, 0.3))
+			print (velocity)
 	
 	
 func start_ball():
@@ -62,7 +68,6 @@ func reset_ball():
 	velocity = Vector2.ZERO
 
 func ball_collision(collider):
-	
 	var ball_width = collision_shape_2d.shape.get_rect().size.x
 	var ball_center_x = position.x
 	var collider_width = collider.get_width()
@@ -80,5 +85,3 @@ func ball_collision(collider):
 	new_velocity = new_velocity.normalized() * velocity_xy
 	
 	velocity = (new_velocity * speed_up_factor).limit_length(VELOCITY_LIMIT)
-	
-	

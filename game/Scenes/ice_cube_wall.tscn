@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr6lvoflb6xqq"]
+
+[ext_resource type="Script" path="res://Scripts/wall.gd" id="1_g8w0g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8347y"]
+size = Vector2(208, 107)
+
+[node name="IceCubeWall" type="RigidBody2D"]
+collision_layer = 4
+gravity_scale = 0.0
+freeze = true
+script = ExtResource("1_g8w0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(99, 75)
+shape = SubResource("RectangleShape2D_8347y")
