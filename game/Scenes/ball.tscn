@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_nj6vb"]
 radius = 47.1699
 
-[node name="Ball" type="CharacterBody2D"]
+[node name="Ball" type="CharacterBody2D" groups=["ball"]]
 collision_mask = 14
 motion_mode = 1
 script = ExtResource("1_tygem")

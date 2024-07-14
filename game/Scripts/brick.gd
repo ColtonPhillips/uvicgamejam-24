@@ -5,7 +5,7 @@ class_name Brick
 signal brick_destroyed
 
 var level = 1
-var chance_to_spawn_power = 10
+var chance_to_spawn_power = 20
 
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D

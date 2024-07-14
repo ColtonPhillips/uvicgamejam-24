@@ -3,8 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 #var change_in_heat = 0.000001
-var change_in_heat = 0.000001
-var temperature = 20
+var change_in_heat = 0.000002
+var temperature = 23.5
 func _ready() -> void:
 	log_temp()
 	pass # Replace with function body.
@@ -17,7 +17,7 @@ func log_temp():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	temperature += change_in_heat
-	change_in_heat += 0.00001
+	change_in_heat += 0.00002
 	queue_redraw()
 	pass
 

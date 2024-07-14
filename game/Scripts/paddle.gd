@@ -9,6 +9,7 @@ var is_ball_started = false
 var is_sped_up = false
 @export var speed = 400
 @export var camera: Camera2D
+@onready var thermometer: Node2D = $"../Thermometer"
 
 @onready var ball = $"../Ball" as Ball
 @onready var collision_shape_2d = $CollisionShape2D
@@ -64,3 +65,6 @@ func on_speed_up():
 	is_sped_up = true
 	await get_tree().create_timer(7.0).timeout
 	is_sped_up = false
+
+func on_temperature_down():
+	thermometer.temperature -= 4
