@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cegxvl7t72hal"]
+[gd_scene load_steps=11 format=3 uid="uid://cegxvl7t72hal"]
 
 [ext_resource type="PackedScene" uid="uid://cmwnuhkpe57qf" path="res://Scenes/paddle.tscn" id="1_gjttg"]
 [ext_resource type="Texture2D" uid="uid://dmifc5reou1ti" path="res://Assets/BGArt.jpg" id="1_ij1ux"]
+[ext_resource type="AudioStream" uid="uid://rn8alcp7nv0i" path="res://Assets/BGMusic.ogg" id="2_iupym"]
 [ext_resource type="PackedScene" uid="uid://kfy3ukhqt013" path="res://Scenes/ball.tscn" id="2_p8dgk"]
 [ext_resource type="PackedScene" uid="uid://7ubiruk0qfs3" path="res://Scenes/wall.tscn" id="3_02ui3"]
 [ext_resource type="PackedScene" uid="uid://cr6lvoflb6xqq" path="res://Scenes/ice_cube_wall.tscn" id="3_7tqdg"]
@@ -19,6 +20,11 @@ position = Vector2(0.0867767, 1.81198e-05)
 scale = Vector2(0.500045, 0.5)
 texture = ExtResource("1_ij1ux")
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BG"]
+stream = ExtResource("2_iupym")
+volume_db = -15.0
+autoplay = true
 
 [node name="Walls" type="Node" parent="."]
 
