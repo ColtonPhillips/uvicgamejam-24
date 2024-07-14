@@ -42,6 +42,14 @@ offset_bottom = 443.0
 text = "UNCLE BUDDY GAMES PRESENTS"
 label_settings = SubResource("LabelSettings_l0tqr")
 
+[node name="SkipLabel" type="Label" parent="."]
+offset_left = -939.0
+offset_top = 597.0
+offset_right = -199.0
+offset_bottom = 662.0
+text = "PRESS ENTER TO SKIP"
+label_settings = SubResource("LabelSettings_l0tqr")
+
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(1343, -364)
 texture = ExtResource("2_vgkkp")
