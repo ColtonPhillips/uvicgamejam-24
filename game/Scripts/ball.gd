@@ -11,13 +11,11 @@ const VELOCITY_LIMIT = 100
 @export var death_zone: DeathZone
 @export var ui: UI
 
-var speed_up_factor := 1.12
+var speed_up_factor := 1.10
 var start_position: Vector2
 var last_collider_id
 
 @onready var collision_shape_2d = $CollisionShape2D
-
-
 
 func _ready():
 	#ui.set_lifes(lifes)
@@ -31,19 +29,20 @@ func _physics_process(delta):
 		return
 		
 	var collider = collision.get_collider()
-		
-	if (collider is Brick): 
+	if (collider is Brick):
+		%HitSound.play()
 		collider.decrease_level()		
 		velocity = velocity.bounce(collision.get_normal())
 		velocity = velocity.rotated(randf_range(-0.2, 0.2))
 		
 	elif (collider is Wall):
+		%ClickSound.play()		
 		velocity = velocity.bounce(collision.get_normal())
 		if abs(velocity.y) < 4 or abs(velocity.x) < 4:
 			velocity = velocity.rotated(randf_range(-0.3, 0.3))
 			print (velocity)
 	if ( collider is Paddle):
-		ball_collision(collider)
+		paddle_collision(collider)
 	
 	
 func start_ball():
@@ -66,7 +65,9 @@ func reset_ball():
 	velocity = Vector2.ZERO
 
 var entered_paddle = false;
-func ball_collision(collider):
+func paddle_collision(collider):
+	%PopSound.play()
+
 	var ball_width = collision_shape_2d.shape.get_rect().size.x
 	var ball_center_x = position.x
 	var collider_width = collider.get_width()

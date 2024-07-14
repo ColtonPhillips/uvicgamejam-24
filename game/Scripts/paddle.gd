@@ -21,8 +21,13 @@ func _ready():
 func _physics_process(delta):
 	linear_velocity = speed * direction
 	if is_sped_up:
-		linear_velocity *= 1.75
-
+		$Sprite2D.modulate.r = 0.5
+		$Sprite2D.modulate.b = 1.5
+		linear_velocity *= 2
+	else:
+		$Sprite2D.modulate.r = 1
+		$Sprite2D.modulate.b = 1
+		
 func _process(delta):
 	var camera_start_x = camera.position.x - camera_rect.size.x / 2
 	var camera_end_x = camera_start_x + camera_rect.size.x
@@ -54,7 +59,8 @@ func get_width():
 	return collision_shape_2d.shape.get_rect().size.x
 
 func on_speed_up():
-	print ("win")
+	if is_sped_up: return
+	%SpeedPowerUpSound.play()
 	is_sped_up = true
-	await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(7.0).timeout
 	is_sped_up = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmwnuhkpe57qf"]
+[gd_scene load_steps=5 format=3 uid="uid://cmwnuhkpe57qf"]
 
 [ext_resource type="Script" path="res://Scripts/paddle.gd" id="1_edjpi"]
 [ext_resource type="Texture2D" uid="uid://b72ppepb1g2ts" path="res://Assets/PaddleCat.png" id="2_ojvxn"]
+[ext_resource type="AudioStream" uid="uid://cklc0wiuh5awe" path="res://Assets/SpeedPower.ogg" id="3_x450g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k37m3"]
 size = Vector2(94, 340)
@@ -20,3 +21,10 @@ texture = ExtResource("2_ojvxn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_k37m3")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="SpeedPowerUpSound" type="AudioStreamPlayer" parent="SFX"]
+unique_name_in_owner = true
+stream = ExtResource("3_x450g")
+volume_db = -5.0

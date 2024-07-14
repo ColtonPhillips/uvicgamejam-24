@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://uabhhjpwpi50"]
+[gd_scene load_steps=5 format=3 uid="uid://uabhhjpwpi50"]
 
 [ext_resource type="Script" path="res://Scripts/speed_powerup.gd" id="1_d6uf7"]
 [ext_resource type="Texture2D" uid="uid://mrq8ar1uloav" path="res://Assets/SpeedPower.png" id="1_r8y6o"]
+[ext_resource type="AudioStream" uid="uid://bprj6ovbaf1on" path="res://Assets/WaterDrop.ogg" id="3_w1qxh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nr32i"]
 radius = 21.5407
@@ -17,3 +18,10 @@ texture = ExtResource("1_r8y6o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nr32i")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="WaterDropSound" type="AudioStreamPlayer" parent="SFX"]
+unique_name_in_owner = true
+stream = ExtResource("3_w1qxh")
+volume_db = 5.0
