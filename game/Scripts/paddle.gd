@@ -7,7 +7,7 @@ var camera_rect: Rect2
 var half_paddle_width: float
 var is_ball_started = false
 var is_sped_up = false
-@export var speed = 400
+@export var speed = 550
 @export var camera: Camera2D
 @onready var thermometer: Node2D = $"../Thermometer"
 
@@ -68,3 +68,13 @@ func on_speed_up():
 
 func on_temperature_down():
 	thermometer.temperature -= 4
+
+var sprites: Array[Texture2D] = [
+	preload("res://Assets/PaddleCat.png"),
+	preload("res://Assets/PaddleCatSquee.png"),
+]
+func squee():
+	$Sprite2D.texture = sprites[1]
+	await get_tree().create_timer(0.3).timeout
+	$Sprite2D.texture = sprites[0]
+	

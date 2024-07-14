@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cegxvl7t72hal"]
+[gd_scene load_steps=14 format=3 uid="uid://cegxvl7t72hal"]
 
 [ext_resource type="PackedScene" uid="uid://cmwnuhkpe57qf" path="res://Scenes/paddle.tscn" id="1_gjttg"]
 [ext_resource type="Texture2D" uid="uid://dmifc5reou1ti" path="res://Assets/BGArt.jpg" id="1_ij1ux"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://bb528nmxhbibp" path="res://Scenes/brick.tscn" id="7_niqie"]
 [ext_resource type="Script" path="res://Scripts/brick_spawner.gd" id="7_v0q6d"]
 [ext_resource type="PackedScene" uid="uid://dejstivh6gejj" path="res://Scenes/thermometer.tscn" id="11_iusll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8347y"]
+size = Vector2(97.25, 95.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4l8p"]
 size = Vector2(900, 1600)
@@ -33,28 +36,58 @@ autoplay = true
 [node name="Walls" type="Node" parent="."]
 
 [node name="UpperWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(-81, -653)
+position = Vector2(-85, -676)
 
 [node name="LeftWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(-939, 104)
+position = Vector2(-774, 132)
 rotation = 1.5708
 
 [node name="RightWall" parent="Walls" instance=ExtResource("3_02ui3")]
-position = Vector2(879, 133)
+position = Vector2(767, 129)
 rotation = 1.5708
 
 [node name="IceCubeWall" parent="Walls" instance=ExtResource("3_7tqdg")]
 position = Vector2(-189, -393)
 
 [node name="CollisionShape2D" parent="Walls/IceCubeWall" index="0"]
-position = Vector2(94, 43.5)
+position = Vector2(-296.75, 308.375)
+
+[node name="IceCubeWall2" parent="Walls" instance=ExtResource("3_7tqdg")]
+position = Vector2(-189, -393)
+
+[node name="CollisionShape2D" parent="Walls/IceCubeWall2" index="0"]
+position = Vector2(-514, 881)
+
+[node name="IceCubeWall3" parent="Walls" instance=ExtResource("3_7tqdg")]
+position = Vector2(-189, -393)
+
+[node name="CollisionShape2D" parent="Walls/IceCubeWall3" index="0"]
+position = Vector2(673, 525)
+
+[node name="IceCubeWall4" parent="Walls" instance=ExtResource("3_7tqdg")]
+position = Vector2(-189, -393)
+
+[node name="CollisionShape2D" parent="Walls/IceCubeWall4" index="0"]
+position = Vector2(699, 96)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/IceCubeWall4"]
+position = Vector2(-568, 154)
+shape = SubResource("RectangleShape2D_8347y")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls/IceCubeWall4"]
+position = Vector2(-581, 529)
+shape = SubResource("RectangleShape2D_8347y")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls/IceCubeWall4"]
+position = Vector2(-241, 577)
+shape = SubResource("RectangleShape2D_8347y")
 
 [node name="Paddle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_gjttg")]
-position = Vector2(-127, 452)
+position = Vector2(-127, 484)
 camera = NodePath("../Camera2D")
 
 [node name="Ball" parent="." node_paths=PackedStringArray("death_zone", "ui") instance=ExtResource("2_p8dgk")]
-position = Vector2(-128, 315)
+position = Vector2(-129, 392)
 death_zone = NodePath("../DeathZone")
 ui = NodePath("../UI")
 
@@ -63,14 +96,10 @@ position = Vector2(-63, 958)
 
 [node name="UI" parent="." instance=ExtResource("6_j0a08")]
 
-[node name="BrickSpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_start")]
-position = Vector2(-138, -153)
+[node name="BrickSpawner" type="Node2D" parent="."]
+position = Vector2(-27, -90)
 script = ExtResource("7_v0q6d")
 brick_scene = ExtResource("7_niqie")
-spawn_start = NodePath("../Marker2D")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(11, -63)
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2(-774, -99)
@@ -90,3 +119,6 @@ metadata/_edit_lock_ = true
 position = Vector2(818, 191)
 
 [editable path="Walls/IceCubeWall"]
+[editable path="Walls/IceCubeWall2"]
+[editable path="Walls/IceCubeWall3"]
+[editable path="Walls/IceCubeWall4"]

@@ -9,8 +9,7 @@ const ROWS = 6
 @onready var ui = $"../UI" as UI
 
 @export var brick_scene: PackedScene
-@export var margin: Vector2 = Vector2(8,8)
-@export var spawn_start: Marker2D
+@export var margin: Vector2 = Vector2(6,6)
 
 var brick_count = 0
 
@@ -28,7 +27,7 @@ func spawn():
 	
 	var row_width = brick_size.x * COLUMNS + margin.x * (COLUMNS - 1)
 	var spawn_position_x = (-row_width  + brick_size.x  + margin.x) / 2 
-	var spawn_position_y = spawn_start.position.y
+	var spawn_position_y = position.y
 	
 	for i in ROWS:
 		for j in COLUMNS:
@@ -54,7 +53,7 @@ func spawn_from_defintion(level_defintion):
 	
 	var row_width = brick_size.x * columns + margin.x * (columns - 1)
 	var spawn_position_x = (-row_width  + brick_size.x  + margin.x) / 2 
-	var spawn_position_y = spawn_start.position.y
+	var spawn_position_y = position.y
 	
 	for i in rows:
 		for j in columns:

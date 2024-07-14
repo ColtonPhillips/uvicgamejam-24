@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cklc0wiuh5awe" path="res://Assets/SpeedPower.ogg" id="3_x450g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k37m3"]
-size = Vector2(94, 340)
+size = Vector2(60, 258)
 
 [node name="Paddle" type="RigidBody2D"]
 collision_layer = 2
@@ -15,7 +15,7 @@ lock_rotation = true
 script = ExtResource("1_edjpi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.145, 0.145)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ojvxn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

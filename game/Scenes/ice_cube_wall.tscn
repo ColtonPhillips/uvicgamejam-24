@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/wall.gd" id="1_g8w0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8347y"]
-size = Vector2(208, 107)
+size = Vector2(97.25, 95.625)
 
 [node name="IceCubeWall" type="RigidBody2D"]
 collision_layer = 4

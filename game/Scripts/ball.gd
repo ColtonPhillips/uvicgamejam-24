@@ -6,12 +6,13 @@ signal life_lost
 
 const VELOCITY_LIMIT = 90
 
-@export var ball_speed = 17
+@export var ball_speed = 18
 @export var lifes = 3
 @export var death_zone: DeathZone
 @export var ui: UI
 
-var speed_up_factor := 1.10
+var speed_up_factor := 1.01
+var natural_speed_up := 0.001
 var start_position: Vector2
 var last_collider_id
 
@@ -23,10 +24,13 @@ func _ready():
 	death_zone.life_lost.connect(on_life_lost)
 
 func _physics_process(delta):
-	var collision = move_and_collide(velocity * ball_speed * delta)
+	natural_speed_up += 0.005
+	var collision = move_and_collide(velocity * (ball_speed + natural_speed_up) * delta)
 	if (!collision):
 		entered_paddle = false
 		return
+	
+	
 		
 	var collider = collision.get_collider()
 	if (collider is Brick):
@@ -39,7 +43,7 @@ func _physics_process(delta):
 		%ClickSound.play()		
 		velocity = velocity.bounce(collision.get_normal())
 		if abs(velocity.y) < 4 or abs(velocity.x) < 4:
-			velocity = velocity.rotated(randf_range(-0.3, 0.3))
+			velocity = velocity.rotated(randf_range(-0.6, 0.6))
 			print (velocity)
 	if ( collider is Paddle):
 		paddle_collision(collider)
@@ -47,6 +51,8 @@ func _physics_process(delta):
 	
 func start_ball():
 	position = start_position
+	position.x = $"../Paddle".position.x
+	natural_speed_up = 0
 	randomize()
 	
 	velocity = Vector2(randf_range(-0.8, 0.8), randf_range(-.1, -1)).normalized() * ball_speed
@@ -62,11 +68,14 @@ func on_life_lost():
 
 func reset_ball():
 	position = start_position
+	position.x = $"../Paddle".position.x
+
 	velocity = Vector2.ZERO
 
 var entered_paddle = false;
 func paddle_collision(collider):
 	%PopSound.play()
+	collider.squee()
 
 	var ball_width = collision_shape_2d.shape.get_rect().size.x
 	var ball_center_x = position.x

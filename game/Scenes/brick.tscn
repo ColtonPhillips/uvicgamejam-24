@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bx57pbmdwvm3t" path="res://Assets/Break.ogg" id="3_qda7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lq55v"]
-size = Vector2(136, 56)
+size = Vector2(104, 42)
 
 [node name="Brick" type="RigidBody2D"]
 collision_layer = 8
@@ -15,7 +15,7 @@ freeze = true
 script = ExtResource("1_g2qod")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.08, 0.08)
+scale = Vector2(0.06, 0.06)
 texture = ExtResource("2_i2lyg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
