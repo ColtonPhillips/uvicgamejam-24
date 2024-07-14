@@ -20,7 +20,11 @@ var last_collider_id
 func _ready():
 	#ui.set_lifes(lifes)
 	start_position = position
-	death_zone.life_lost.connect(on_life_lost)
+	if (death_zone):
+		death_zone.life_lost.connect(on_life_lost)
+	else: 
+		scale = Vector2(0.6,0.6)
+		velocity = Vector2(randf_range(-0.8, 0.8), randf_range(-.1, -1)).normalized() * ball_speed
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * ball_speed * delta)
@@ -54,11 +58,13 @@ func start_ball():
 func on_life_lost():
 	lifes -= 1
 	if lifes == 0:
-		ui.game_over()
+		if ui:
+			ui.game_over()
 	else:
 		life_lost.emit()
 		reset_ball()
-		ui.set_lifes(lifes)
+		if ui:
+			ui.set_lifes(lifes)
 
 func reset_ball():
 	position = start_position

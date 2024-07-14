@@ -12,4 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	life_lost.emit()
+	body.queue_free()
+	var ball_count = get_tree().get_nodes_in_group("ball").size()
+	if ball_count < 2:
+		life_lost.emit()
