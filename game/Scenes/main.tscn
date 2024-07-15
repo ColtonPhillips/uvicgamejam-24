@@ -50,7 +50,7 @@ rotation = 1.5708
 position = Vector2(-189, -393)
 
 [node name="CollisionShape2D" parent="Walls/IceCubeWall" index="0"]
-position = Vector2(-296.75, 308.375)
+position = Vector2(-293.688, 307.281)
 
 [node name="IceCubeWall2" parent="Walls" instance=ExtResource("3_7tqdg")]
 position = Vector2(-189, -393)

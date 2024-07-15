@@ -44,7 +44,7 @@ func _physics_process(delta):
 		velocity = velocity.bounce(collision.get_normal())
 		if abs(velocity.y) < 4 or abs(velocity.x) < 4:
 			velocity = velocity.rotated(randf_range(-0.6, 0.6))
-			print (velocity)
+			#print (velocity)
 	if ( collider is Paddle):
 		paddle_collision(collider)
 	
@@ -55,7 +55,7 @@ func start_ball():
 	natural_speed_up = 0
 	randomize()
 	
-	velocity = Vector2(randf_range(-0.8, 0.8), randf_range(-.1, -1)).normalized() * ball_speed
+	velocity = Vector2(randf_range(-0.2, 0.2), randf_range(-.1, -1)).normalized() * ball_speed
 
 func on_life_lost():
 	lifes -= 1
@@ -81,16 +81,33 @@ func paddle_collision(collider):
 	var ball_center_x = position.x
 	var collider_width = collider.get_width()
 	var collider_center_x = collider.position.x
-	
 	var velocity_xy = velocity.length()
-	
 	var collision_x = (ball_center_x - collider_center_x) / (collider_width / 2)
-	
 	var new_velocity = Vector2.ZERO
 	
-	new_velocity.x = velocity_xy * collision_x
-	new_velocity.y = sqrt(absf(velocity_xy* velocity_xy - new_velocity.x * new_velocity.x)) * (-1 if velocity.y > 0 else 1)
+	#print (" collider_width")
+	#print (collider_width)
+	#
+	#print (" ball_center_x")
+	#print (ball_center_x)
+	#
+	#print (" collider_center_x")
+	#print (collider_center_x)
 	
+	print (" velocity_xy")
+	print (velocity_xy)
+	
+	print (" collision_x")
+	print (collision_x)
+	
+	
+	
+	new_velocity.x = velocity_xy * collision_x
+	#new_velocity.y = sqrt(absf(velocity_xy* velocity_xy - new_velocity.x * new_velocity.x)) * (-1 if velocity.y > 0 else 1)
+	new_velocity.y = velocity_xy * 2 * (-1 if velocity.y > 0 else 1)
+	
+	print (" new_velocity.x")
+	print (new_velocity.x)
 	new_velocity = new_velocity.normalized() * velocity_xy
 	if entered_paddle == false:
 		new_velocity *= speed_up_factor
