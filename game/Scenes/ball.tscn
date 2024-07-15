@@ -26,14 +26,13 @@ shape = SubResource("CircleShape2D_nj6vb")
 [node name="PopSound" type="AudioStreamPlayer" parent="SFX"]
 unique_name_in_owner = true
 stream = ExtResource("3_c112m")
-volume_db = -15.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="SFX"]
 unique_name_in_owner = true
 stream = ExtResource("4_2dyh8")
-volume_db = -15.0
+volume_db = -3.0
 
 [node name="HitSound" type="AudioStreamPlayer" parent="SFX"]
 unique_name_in_owner = true
 stream = ExtResource("5_lu8qh")
-volume_db = -22.518
+volume_db = -3.0

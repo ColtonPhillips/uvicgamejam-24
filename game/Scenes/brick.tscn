@@ -27,4 +27,4 @@ shape = SubResource("RectangleShape2D_lq55v")
 [node name="BreakSound" type="AudioStreamPlayer" parent="SFX"]
 unique_name_in_owner = true
 stream = ExtResource("3_qda7k")
-volume_db = -8.0
+volume_db = -17.398
