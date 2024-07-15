@@ -29,4 +29,5 @@ func _physics_process(delta: float) -> void:
 	if (collider is Wall):
 		queue_free()
 	if (collider is Ball):
+		collider.velocity.y = - abs(collider.velocity.y) 
 		queue_free()

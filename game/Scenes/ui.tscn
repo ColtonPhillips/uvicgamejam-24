@@ -1,16 +1,75 @@
-[gd_scene load_steps=3 format=3 uid="uid://8aou10aiyrku"]
+[gd_scene load_steps=9 format=3 uid="uid://8aou10aiyrku"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_g6rql"]
+[ext_resource type="FontFile" uid="uid://1sqvnkiuyfsu" path="res://Assets/StarForceFont.ttf" id="2_w0bhu"]
+
+[sub_resource type="Theme" id="Theme_8ew8k"]
+default_font = ExtResource("2_w0bhu")
+default_font_size = 32
+
+[sub_resource type="FontFile" id="FontFile_v8cqo"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/18/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/32/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/18/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/18/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/18/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/18/0/kerning_overrides/18/0 = Vector2(0, 0)
+cache/0/18/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/18/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_ke8ym"]
+default_font = SubResource("FontFile_v8cqo")
+default_font_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fjlr"]
 bg_color = Color(0.940005, 0.366786, 0.585063, 1)
 
+[sub_resource type="InputEventKey" id="InputEventKey_afciw"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_netsw"]
+events = [SubResource("InputEventKey_afciw")]
+
 [node name="UI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_g6rql")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1661.0
+offset_top = 186.0
+offset_right = 1917.0
+offset_bottom = 263.0
+size_flags_horizontal = 0
+theme = SubResource("Theme_8ew8k")
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
@@ -22,7 +81,10 @@ layout_mode = 2
 [node name="LifesLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Lifes: 3"
+theme_override_colors/font_color = Color(0.243137, 1, 0.815686, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+text = "LIVES  3"
 
 [node name="GameLostContainer" type="CenterContainer" parent="."]
 visible = false
@@ -31,6 +93,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ke8ym")
 
 [node name="Panel" type="Panel" parent="GameLostContainer"]
 custom_minimum_size = Vector2(400, 400)
@@ -53,9 +116,16 @@ layout_mode = 2
 text = "YOU HAVE LOST"
 horizontal_alignment = 1
 
+[node name="LossReason" type="Label" parent="GameLostContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "REASON IS"
+horizontal_alignment = 1
+
 [node name="GameLostButton" type="Button" parent="GameLostContainer/Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+shortcut = SubResource("Shortcut_netsw")
 text = "RESTART GAME"
 
 [connection signal="pressed" from="GameLostContainer/Panel/VBoxContainer/GameLostButton" to="." method="_on_game_lost_button_pressed"]

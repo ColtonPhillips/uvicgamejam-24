@@ -60,7 +60,7 @@ func start_ball():
 func on_life_lost():
 	lifes -= 1
 	if lifes == 0:
-		ui.game_over()
+		ui.game_over("YOU RAN OUT OF LIVES!")
 	else:
 		life_lost.emit()
 		reset_ball()
@@ -85,29 +85,11 @@ func paddle_collision(collider):
 	var collision_x = (ball_center_x - collider_center_x) / (collider_width / 2)
 	var new_velocity = Vector2.ZERO
 	
-	#print (" collider_width")
-	#print (collider_width)
-	#
-	#print (" ball_center_x")
-	#print (ball_center_x)
-	#
-	#print (" collider_center_x")
-	#print (collider_center_x)
-	
-	print (" velocity_xy")
-	print (velocity_xy)
-	
-	print (" collision_x")
-	print (collision_x)
-	
-	
 	
 	new_velocity.x = velocity_xy * collision_x
 	#new_velocity.y = sqrt(absf(velocity_xy* velocity_xy - new_velocity.x * new_velocity.x)) * (-1 if velocity.y > 0 else 1)
 	new_velocity.y = velocity_xy * 2 * (-1 if velocity.y > 0 else 1)
-	
-	print (" new_velocity.x")
-	print (new_velocity.x)
+
 	new_velocity = new_velocity.normalized() * velocity_xy
 	if entered_paddle == false:
 		new_velocity *= speed_up_factor
