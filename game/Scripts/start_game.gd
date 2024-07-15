@@ -2,6 +2,7 @@ extends Node
 
 @onready var comic_button: TextureButton = $ComicButton
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var story_music: AudioStreamPlayer = $StoryMusic
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,10 +12,15 @@ func _ready() -> void:
 	
 func cutscene():
 	var timing := 4
+	story_music.play()
+	story_music.volume_db= -80
+	var tween0 = create_tween().set_ease(Tween.EASE_OUT)
+	tween0.tween_property(story_music, "volume_db", -16, 4)
 	
 	await get_tree().create_timer(3).timeout
 	camera_2d.position = Vector2(465, 431)
 	camera_2d.rotation_degrees += randf_range(-10,10)
+	
 	
 	await get_tree().create_timer(timing).timeout
 	camera_2d.position = Vector2(1250, 445)

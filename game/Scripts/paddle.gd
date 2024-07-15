@@ -74,7 +74,7 @@ func on_speed_up():
 	is_sped_up = false
 
 func on_temperature_down():
-	thermometer.temperature -= 4
+	thermometer.temperature -= 7
 
 var sprites: Array[Texture2D] = [
 	preload("res://Assets/PaddleCat.png"),

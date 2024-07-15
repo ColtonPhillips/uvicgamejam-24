@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cirbyi3pmn0kj"]
+[gd_scene load_steps=7 format=3 uid="uid://cirbyi3pmn0kj"]
 
 [ext_resource type="Script" path="res://Scripts/start_game.gd" id="1_r0l32"]
 [ext_resource type="Texture2D" uid="uid://c34ynbm7f1x7e" path="res://Assets/Logo.jpg" id="2_vgkkp"]
 [ext_resource type="Texture2D" uid="uid://e58uswisb3aj" path="res://Assets/Comic.jpg" id="3_kvfso"]
+[ext_resource type="AudioStream" uid="uid://clmqk63d1po5p" path="res://Assets/StorySound.ogg" id="4_4tecr"]
+[ext_resource type="AudioStream" uid="uid://uf51hoh5cu3v" path="res://Assets/StoryMusic.ogg" id="5_3l8vn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l0tqr"]
 font_size = 47
@@ -53,6 +55,15 @@ label_settings = SubResource("LabelSettings_l0tqr")
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(1343, -364)
 texture = ExtResource("2_vgkkp")
+
+[node name="StoryLines" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4tecr")
+volume_db = 1.0
+autoplay = true
+
+[node name="StoryMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3l8vn")
+volume_db = -80.0
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ComicButton" to="." method="_on_texture_button_pressed"]
