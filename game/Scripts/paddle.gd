@@ -38,8 +38,15 @@ func _process(delta):
 	elif global_position.x + half_paddle_width > camera_end_x:
 		global_position.x = camera_end_x - half_paddle_width
 	
-
+var scene_to_instance = preload("res://Scenes/fire_ball.tscn")
 func _input(event):
+	if Input.is_action_just_pressed("shoot"):
+		var object := scene_to_instance.instantiate()
+		thermometer.temperature += 5
+		get_parent().add_child(object)
+		object.position = position 
+		object.position.y -= 100
+		
 	var _d = Input.get_axis("left", "right")
 	if _d == -1:
 		direction = Vector2.LEFT

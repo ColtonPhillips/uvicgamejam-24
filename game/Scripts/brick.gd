@@ -34,7 +34,6 @@ func decrease_level():
 	else: 
 		fade_out()
 		
-		
 func fade_out():
 	%BreakSound.play()
 	collision_shape_2d.disabled = true
