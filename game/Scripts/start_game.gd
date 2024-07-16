@@ -44,9 +44,11 @@ func cutscene():
 	await get_tree().create_timer(timing).timeout
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(camera_2d, "zoom", Vector2(0.8,0.8), 3.3)
-	camera_2d.position = Vector2(1366, -259)
+	camera_2d.position = Vector2(1366, -279)
 	camera_2d.position_smoothing_speed = 1
 	camera_2d.rotation_degrees += randf_range(-10,10)
+	if camera_2d.rotation_degrees > 15: camera_2d.rotation_degrees -= 10
+	if camera_2d.rotation_degrees < -15: camera_2d.rotation_degrees += 10
 	
 	
 	

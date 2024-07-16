@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cirbyi3pmn0kj"]
+[gd_scene load_steps=8 format=3 uid="uid://cirbyi3pmn0kj"]
 
 [ext_resource type="Script" path="res://Scripts/start_game.gd" id="1_r0l32"]
 [ext_resource type="Texture2D" uid="uid://c34ynbm7f1x7e" path="res://Assets/Logo.jpg" id="2_vgkkp"]
 [ext_resource type="Texture2D" uid="uid://e58uswisb3aj" path="res://Assets/Comic.jpg" id="3_kvfso"]
 [ext_resource type="AudioStream" uid="uid://clmqk63d1po5p" path="res://Assets/StorySound.ogg" id="4_4tecr"]
 [ext_resource type="AudioStream" uid="uid://uf51hoh5cu3v" path="res://Assets/StoryMusic.ogg" id="5_3l8vn"]
+[ext_resource type="Texture2D" uid="uid://bdg3ps1kxfxwt" path="res://Assets/Instructions.jpg" id="6_0jxrh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l0tqr"]
 font_size = 47
@@ -13,10 +14,10 @@ font_size = 47
 script = ExtResource("1_r0l32")
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 1365.0
-offset_top = -153.0
-offset_right = 1700.0
-offset_bottom = -13.0
+offset_left = 1613.0
+offset_top = -151.0
+offset_right = 1948.0
+offset_bottom = -11.0
 text = "START GAME"
 
 [node name="ComicButton" type="TextureButton" parent="."]
@@ -53,7 +54,7 @@ text = "PRESS ENTER TO SKIP"
 label_settings = SubResource("LabelSettings_l0tqr")
 
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(1343, -364)
+position = Vector2(1584.6, -364)
 texture = ExtResource("2_vgkkp")
 
 [node name="StoryLines" type="AudioStreamPlayer" parent="."]
@@ -64,6 +65,11 @@ autoplay = true
 [node name="StoryMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3l8vn")
 volume_db = -80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(706.6, -303)
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("6_0jxrh")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ComicButton" to="." method="_on_texture_button_pressed"]
