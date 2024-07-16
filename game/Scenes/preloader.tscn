@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh4a2qo3v114r"]
+
+[ext_resource type="Script" path="res://Scripts/Preloader.gd" id="1_wgt0f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m3y4v"]
+font_size = 91
+
+[sub_resource type="Shortcut" id="Shortcut_k7ara"]
+
+[node name="Preloader" type="Node2D"]
+script = ExtResource("1_wgt0f")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 405.0
+offset_top = 447.0
+offset_right = 2242.0
+offset_bottom = 572.0
+text = "CLICK SCREEN TO BEGIN!"
+label_settings = SubResource("LabelSettings_m3y4v")
+
+[node name="StartButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -112.0
+offset_top = -21.0
+offset_right = 2008.0
+offset_bottom = 1123.0
+shortcut = SubResource("Shortcut_k7ara")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

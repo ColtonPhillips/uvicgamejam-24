@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8aou10aiyrku"]
+[gd_scene load_steps=9 format=3 uid="uid://8aou10aiyrku"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_g6rql"]
 [ext_resource type="FontFile" uid="uid://1sqvnkiuyfsu" path="res://Assets/StarForceFont.ttf" id="2_w0bhu"]
@@ -8,46 +8,8 @@
 default_font = ExtResource("2_w0bhu")
 default_font_size = 28
 
-[sub_resource type="FontFile" id="FontFile_v8cqo"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/32/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/18/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
-cache/0/32/0/ascent = 0.0
-cache/0/32/0/descent = 0.0
-cache/0/32/0/underline_position = 0.0
-cache/0/32/0/underline_thickness = 0.0
-cache/0/32/0/scale = 1.0
-cache/0/32/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/32/0/kerning_overrides/32/0 = Vector2(0, 0)
-cache/0/32/0/kerning_overrides/18/0 = Vector2(0, 0)
-cache/0/32/0/kerning_overrides/20/0 = Vector2(0, 0)
-cache/0/18/0/ascent = 0.0
-cache/0/18/0/descent = 0.0
-cache/0/18/0/underline_position = 0.0
-cache/0/18/0/underline_thickness = 0.0
-cache/0/18/0/scale = 1.0
-cache/0/18/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/18/0/kerning_overrides/32/0 = Vector2(0, 0)
-cache/0/18/0/kerning_overrides/18/0 = Vector2(0, 0)
-cache/0/18/0/kerning_overrides/20/0 = Vector2(0, 0)
-cache/0/20/0/ascent = 0.0
-cache/0/20/0/descent = 0.0
-cache/0/20/0/underline_position = 0.0
-cache/0/20/0/underline_thickness = 0.0
-cache/0/20/0/scale = 1.0
-cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/20/0/kerning_overrides/32/0 = Vector2(0, 0)
-cache/0/20/0/kerning_overrides/18/0 = Vector2(0, 0)
-cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
-
 [sub_resource type="Theme" id="Theme_ke8ym"]
-default_font = SubResource("FontFile_v8cqo")
+default_font = ExtResource("2_w0bhu")
 default_font_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fjlr"]
@@ -97,7 +59,7 @@ grow_vertical = 2
 theme = SubResource("Theme_ke8ym")
 
 [node name="Panel" type="Panel" parent="GameLostContainer"]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(600, 400)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7fjlr")
 
@@ -134,7 +96,7 @@ grow_vertical = 2
 theme = SubResource("Theme_ke8ym")
 
 [node name="Panel" type="Panel" parent="LevelWonContainer"]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(600, 400)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7fjlr")
 
