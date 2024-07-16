@@ -9,6 +9,9 @@ class_name UI
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 @onready var level_won_container: CenterContainer = $LevelWonContainer
 
+func _ready():
+	set_lifes(LevelDefinitions.lives)
+
 func set_lifes(lifes: int):
 	lifes_label.text = "LIVES  %d" % lifes
 
@@ -22,6 +25,7 @@ func game_over(reason: String):
 
 func _on_game_lost_button_pressed():
 	get_tree().paused = false
+	LevelDefinitions.reset_game()
 	get_tree().reload_current_scene()
 
 func on_level_won():

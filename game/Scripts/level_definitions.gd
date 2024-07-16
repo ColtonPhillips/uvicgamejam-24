@@ -1,5 +1,7 @@
 extends Node
 
+var max_lives = 5
+var lives = max_lives
 var current_level = 2
 
 var level_1 = [
@@ -24,3 +26,10 @@ func get_current_level():
 
 func is_last_level():
 	return current_level == levels.size()
+
+func life_lost():
+	lives -= 1
+	
+func reset_game():
+	current_level = 1
+	lives = max_lives

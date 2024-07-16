@@ -85,7 +85,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.243137, 1, 0.815686, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-text = "LIVES  3"
+text = "LIVES  1"
 
 [node name="GameLostContainer" type="CenterContainer" parent="."]
 visible = false

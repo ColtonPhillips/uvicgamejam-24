@@ -7,7 +7,6 @@ signal life_lost
 const VELOCITY_LIMIT = 100
 
 @export var ball_speed = 20
-@export var lifes = 3
 @export var death_zone: DeathZone
 @export var ui: UI
 
@@ -58,13 +57,13 @@ func start_ball():
 	velocity = Vector2(randf_range(-0.2, 0.2), randf_range(-.1, -1)).normalized() * ball_speed
 
 func on_life_lost():
-	lifes -= 1
-	if lifes == 0:
+	LevelDefinitions.life_lost()
+	if LevelDefinitions.lives < 1:
 		ui.game_over("YOU RAN OUT OF LIVES!")
 	else:
 		life_lost.emit()
 		reset_ball()
-		ui.set_lifes(lifes)
+		ui.set_lifes(LevelDefinitions.lives)
 
 func reset_ball():
 	position = start_position
