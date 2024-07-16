@@ -5,7 +5,7 @@
 
 [sub_resource type="Theme" id="Theme_8ew8k"]
 default_font = ExtResource("2_w0bhu")
-default_font_size = 32
+default_font_size = 28
 
 [sub_resource type="FontFile" id="FontFile_v8cqo"]
 cache/0/16/0/ascent = 0.0
@@ -64,10 +64,10 @@ process_mode = 3
 script = ExtResource("1_g6rql")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 1661.0
-offset_top = 186.0
-offset_right = 1917.0
-offset_bottom = 263.0
+offset_left = 1677.0
+offset_top = 213.0
+offset_right = 1933.0
+offset_bottom = 290.0
 size_flags_horizontal = 0
 theme = SubResource("Theme_8ew8k")
 theme_override_constants/margin_left = 16

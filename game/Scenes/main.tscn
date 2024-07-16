@@ -116,7 +116,7 @@ action = "right"
 metadata/_edit_lock_ = true
 
 [node name="Thermometer" parent="." instance=ExtResource("11_iusll")]
-position = Vector2(814, 371)
+position = Vector2(814, 385)
 
 [editable path="Walls/IceCubeWall"]
 [editable path="Walls/IceCubeWall2"]

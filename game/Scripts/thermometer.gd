@@ -1,6 +1,9 @@
 extends Node2D
 
-
+@onready var ice_cube: Sprite2D = $IceCube
+const ICE_CUBE_1 = preload("res://Assets/IceCube1.png")
+const ICE_CUBE_2 = preload("res://Assets/IceCube2.png")
+const ICE_CUBE_3 = preload("res://Assets/IceCube3.png")
 # Called when the node enters the scene tree for the first time.
 #var change_in_heat = 0.000001
 var change_in_heat = 0.000001
@@ -24,6 +27,12 @@ func _process(delta: float) -> void:
 	queue_redraw()
 	if temperature > too_hot:
 		ui.game_over("TOO HOT! YOUR PALS MELTED!")
+	
+	ice_cube.texture = ICE_CUBE_1
+	if temperature > 100:
+		ice_cube.texture = ICE_CUBE_2
+	if temperature > 200:
+		ice_cube.texture = ICE_CUBE_3
 
 func _draw():
 	# Define the rectangle's position and size
