@@ -6,11 +6,14 @@ class_name UI
 @onready var game_lost_container = $GameLostContainer
 #@onready var level_won_container = $LevelWonContainer
 @onready var loss_reason: Label = %LossReason
+@onready var death_sound: AudioStreamPlayer = $DeathSound
 
 func set_lifes(lifes: int):
 	lifes_label.text = "LIVES  %d" % lifes
 
 func game_over(reason: String):
+	set_lifes(0)
+	death_sound.play()
 	loss_reason.text = reason
 	get_tree().paused = true
 	game_lost_container.show()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://8aou10aiyrku"]
+[gd_scene load_steps=10 format=3 uid="uid://8aou10aiyrku"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_g6rql"]
 [ext_resource type="FontFile" uid="uid://1sqvnkiuyfsu" path="res://Assets/StarForceFont.ttf" id="2_w0bhu"]
+[ext_resource type="AudioStream" uid="uid://dnudeqh0i3yws" path="res://Assets/Death.ogg" id="3_54r6g"]
 
 [sub_resource type="Theme" id="Theme_8ew8k"]
 default_font = ExtResource("2_w0bhu")
@@ -127,5 +128,8 @@ unique_name_in_owner = true
 layout_mode = 2
 shortcut = SubResource("Shortcut_netsw")
 text = "RESTART GAME"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_54r6g")
 
 [connection signal="pressed" from="GameLostContainer/Panel/VBoxContainer/GameLostButton" to="." method="_on_game_lost_button_pressed"]
