@@ -8,7 +8,7 @@ radius = 201.884
 
 [node name="Fireball" type="CharacterBody2D"]
 collision_layer = 32
-collision_mask = 13
+collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_wgrx8")
 

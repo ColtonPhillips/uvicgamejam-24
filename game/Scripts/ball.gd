@@ -41,9 +41,8 @@ func _physics_process(delta):
 	elif (collider is Wall):
 		%ClickSound.play()		
 		velocity = velocity.bounce(collision.get_normal())
-		if abs(velocity.y) < 4 or abs(velocity.x) < 4:
+		if abs(velocity.y) < 2 or abs(velocity.x) < 2:
 			velocity = velocity.rotated(randf_range(-0.6, 0.6))
-			#print (velocity)
 	if ( collider is Paddle):
 		paddle_collision(collider)
 	

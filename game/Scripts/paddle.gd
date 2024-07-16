@@ -7,7 +7,7 @@ var camera_rect: Rect2
 var half_paddle_width: float
 var is_ball_started = false
 var is_sped_up = false
-@export var speed = 580
+@export var speed = 550
 @export var camera: Camera2D
 @onready var thermometer: Node2D = $"../Thermometer"
 

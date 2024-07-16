@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	velocity.y = -120
+	velocity.y = -170
 	letsgo()
 	
 func letsgo():
@@ -17,7 +17,7 @@ func letsgo():
 
 func _physics_process(delta: float) -> void:
 	
-	velocity.y -= 320 * delta
+	velocity.y -= 580 * delta
 	var collision = move_and_collide(velocity * delta)
 	if (!collision):
 		return
@@ -26,8 +26,8 @@ func _physics_process(delta: float) -> void:
 	if (collider is Brick):
 		collider.decrease_level()
 		queue_free()
-	if (collider is Wall):
-		queue_free()
+	#if (collider is Wall):
+		#queue_free()
 	if (collider is Ball):
 		collider.velocity.y = - abs(collider.velocity.y) 
 		queue_free()
