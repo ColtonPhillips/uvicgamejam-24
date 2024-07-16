@@ -42,8 +42,7 @@ var scene_to_instance = preload("res://Scenes/fire_ball.tscn")
 func _input(event):
 	if Input.is_action_just_pressed("shoot") and is_ball_started:
 		var object := scene_to_instance.instantiate()
-		thermometer.temperature += 5
-		print(thermometer.temperature)
+		thermometer.shoot_fireball()
 		get_parent().add_child(object)
 		object.position = position 
 		object.position.y -= 40
@@ -75,7 +74,7 @@ func on_speed_up():
 	is_sped_up = false
 
 func on_temperature_down():
-	thermometer.temperature -= 7
+	thermometer.snowflake_collected()
 
 var sprites: Array[Texture2D] = [
 	preload("res://Assets/PaddleCat.png"),

@@ -13,6 +13,13 @@ func _ready() -> void:
 	#log_temp()
 	pass # Replace with function body.
 
+func shoot_fireball():
+	temperature += 20
+
+func snowflake_collected():
+	temperature -= 30
+	if temperature < 1: temperature = 1
+	
 func log_temp():
 	while (true):	
 		await get_tree().create_timer(1).timeout
@@ -26,6 +33,7 @@ func _process(delta: float) -> void:
 	change_in_heat += 0.00001
 	queue_redraw()
 	if temperature > too_hot:
+		temperature = too_hot
 		ui.game_over("TOO HOT! YOUR PALS MELTED!")
 	
 	ice_cube.texture = ICE_CUBE_1
