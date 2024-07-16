@@ -7,7 +7,7 @@ const ICE_CUBE_3 = preload("res://Assets/IceCube3.png")
 # Called when the node enters the scene tree for the first time.
 #var change_in_heat = 0.000001
 var change_in_heat = 0.000001
-var temperature = 23.5
+var temperature = 5
 var too_hot = 250
 func _ready() -> void:
 	#log_temp()
@@ -18,7 +18,7 @@ func shoot_fireball():
 
 func snowflake_collected():
 	temperature -= 30
-	if temperature < 1: temperature = 1
+	if temperature < 5: temperature = 5
 	
 func log_temp():
 	while (true):	

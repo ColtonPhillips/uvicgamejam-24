@@ -5,7 +5,7 @@ class_name Brick
 signal brick_destroyed
 
 var level = 1
-var chance_to_spawn_power = 20
+var chance_to_spawn_power = 25
 
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D
@@ -38,7 +38,7 @@ func fade_out():
 	%BreakSound.play()
 	collision_shape_2d.disabled = true
 	var tween = get_tree().create_tween()
-	tween.tween_property(sprite_2d, "modulate", Color.TRANSPARENT, .5)
+	tween.tween_property(sprite_2d, "modulate", Color.TRANSPARENT, .25)
 	tween.tween_callback(destroy)
 	
 var scene_to_instance = preload("res://Scenes/speed_powerup.tscn")

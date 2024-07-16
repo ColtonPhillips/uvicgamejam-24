@@ -4,9 +4,9 @@ class_name Ball
 
 signal life_lost
 
-const VELOCITY_LIMIT = 90
+const VELOCITY_LIMIT = 100
 
-@export var ball_speed = 18
+@export var ball_speed = 20
 @export var lifes = 3
 @export var death_zone: DeathZone
 @export var ui: UI

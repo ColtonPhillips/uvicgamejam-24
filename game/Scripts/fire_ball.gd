@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	velocity.y = -100
+	velocity.y = -120
 	letsgo()
 	
 func letsgo():
@@ -17,7 +17,7 @@ func letsgo():
 
 func _physics_process(delta: float) -> void:
 	
-	velocity.y -= 300 * delta
+	velocity.y -= 320 * delta
 	var collision = move_and_collide(velocity * delta)
 	if (!collision):
 		return

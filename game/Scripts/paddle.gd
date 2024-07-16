@@ -7,7 +7,7 @@ var camera_rect: Rect2
 var half_paddle_width: float
 var is_ball_started = false
 var is_sped_up = false
-@export var speed = 550
+@export var speed = 580
 @export var camera: Camera2D
 @onready var thermometer: Node2D = $"../Thermometer"
 
@@ -24,7 +24,7 @@ func _physics_process(delta):
 	if is_sped_up:
 		$Sprite2D.modulate.r = 0.5
 		$Sprite2D.modulate.b = 1.5
-		linear_velocity *= 2
+		linear_velocity *= 1.7
 	else:
 		$Sprite2D.modulate.r = 1
 		$Sprite2D.modulate.b = 1
@@ -70,7 +70,7 @@ func on_speed_up():
 	if is_sped_up: return
 	%SpeedPowerUpSound.play()
 	is_sped_up = true
-	await get_tree().create_timer(7.0).timeout
+	await get_tree().create_timer(7.5).timeout
 	is_sped_up = false
 
 func on_temperature_down():
