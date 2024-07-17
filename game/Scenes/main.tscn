@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cegxvl7t72hal"]
+[gd_scene load_steps=16 format=3 uid="uid://cegxvl7t72hal"]
 
 [ext_resource type="PackedScene" uid="uid://cmwnuhkpe57qf" path="res://Scenes/paddle.tscn" id="1_gjttg"]
 [ext_resource type="Texture2D" uid="uid://dmifc5reou1ti" path="res://Assets/BGArt.jpg" id="1_ij1ux"]
@@ -16,7 +16,13 @@
 size = Vector2(97.25, 95.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4l8p"]
-size = Vector2(900, 1600)
+size = Vector2(800, 800)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc01t"]
+size = Vector2(1111, 800)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qv8jp"]
+size = Vector2(2000, 400)
 
 [node name="Main" type="Node"]
 
@@ -102,17 +108,26 @@ script = ExtResource("7_v0q6d")
 brick_scene = ExtResource("7_niqie")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(-774, -99)
+position = Vector2(-563, 235)
 shape = SubResource("RectangleShape2D_w4l8p")
 shape_visible = false
+passby_press = true
 action = "left"
 metadata/_edit_lock_ = true
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
-position = Vector2(509, -103)
-shape = SubResource("RectangleShape2D_w4l8p")
+position = Vector2(461, 235)
+shape = SubResource("RectangleShape2D_qc01t")
 shape_visible = false
+passby_press = true
 action = "right"
+metadata/_edit_lock_ = true
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+position = Vector2(-18, -376)
+shape = SubResource("RectangleShape2D_qv8jp")
+shape_visible = false
+action = "shoot"
 metadata/_edit_lock_ = true
 
 [node name="Thermometer" parent="." instance=ExtResource("11_iusll")]

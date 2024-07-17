@@ -40,7 +40,7 @@ func _process(delta):
 	
 var scene_to_instance = preload("res://Scenes/fire_ball.tscn")
 func _input(event):
-	if Input.is_action_just_pressed("shoot") and is_ball_started:
+	if Input.is_action_just_pressed("shoot") and event.is_action_type() and is_ball_started:
 		var object := scene_to_instance.instantiate()
 		thermometer.shoot_fireball()
 		get_parent().add_child(object)

@@ -23,7 +23,7 @@ func snowflake_collected():
 func log_temp():
 	while (true):	
 		await get_tree().create_timer(1).timeout
-		#print(temperature)
+		#print(temperature)addddddd
 		
 @onready var ui: UI = $"../UI"
 
