@@ -58,6 +58,11 @@ func _input(event):
 	if (direction != Vector2.ZERO or Input.is_action_just_pressed("shoot")) && !is_ball_started:
 		ball.start_ball()
 		is_ball_started = true
+	if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down") and event.is_action_type():
+		var _e = Input.get_axis("up", "down")
+		if _e != 0 and is_ball_started:
+			ball.tilt_direction = _e
+			thermometer.tilt()
 
 func on_ball_lost():
 	is_ball_started = false

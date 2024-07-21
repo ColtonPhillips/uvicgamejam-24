@@ -8,6 +8,7 @@ class_name UI
 @onready var loss_reason: Label = %LossReason
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 @onready var level_won_container: CenterContainer = $LevelWonContainer
+@onready var timer: CanvasLayer = $"../Timer"
 
 func _ready():
 	set_lifes(LevelDefinitions.lives)
@@ -27,10 +28,13 @@ func _on_game_lost_button_pressed():
 	get_tree().paused = false
 	LevelDefinitions.reset_game()
 	get_tree().reload_current_scene()
+	timer.reset_timer()
 
 func on_level_won():
 	if LevelDefinitions.is_last_level():
 		game_over("YOU WON THE GAME. PLAY AGAIN?")
+		timer.paused = true
+		timer.save_timer()
 	else:	
 		level_won_container.show()
 		LevelDefinitions.current_level += 1

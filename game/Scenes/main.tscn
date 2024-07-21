@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cegxvl7t72hal"]
+[gd_scene load_steps=17 format=3 uid="uid://cegxvl7t72hal"]
 
 [ext_resource type="PackedScene" uid="uid://cmwnuhkpe57qf" path="res://Scenes/paddle.tscn" id="1_gjttg"]
 [ext_resource type="Texture2D" uid="uid://dmifc5reou1ti" path="res://Assets/BGArt.jpg" id="1_ij1ux"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bb528nmxhbibp" path="res://Scenes/brick.tscn" id="7_niqie"]
 [ext_resource type="Script" path="res://Scripts/brick_spawner.gd" id="7_v0q6d"]
 [ext_resource type="PackedScene" uid="uid://dejstivh6gejj" path="res://Scenes/thermometer.tscn" id="11_iusll"]
+[ext_resource type="PackedScene" uid="uid://3v3relw2vb40" path="res://Scenes/timer.tscn" id="12_r53ig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8347y"]
 size = Vector2(97.25, 95.625)
@@ -132,6 +133,8 @@ metadata/_edit_lock_ = true
 
 [node name="Thermometer" parent="." instance=ExtResource("11_iusll")]
 position = Vector2(814, 385)
+
+[node name="Timer" parent="." instance=ExtResource("12_r53ig")]
 
 [editable path="Walls/IceCubeWall"]
 [editable path="Walls/IceCubeWall2"]

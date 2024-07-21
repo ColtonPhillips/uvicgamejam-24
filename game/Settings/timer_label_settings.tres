@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bxa4a75bks2v8"]
+
+[ext_resource type="FontFile" uid="uid://1sqvnkiuyfsu" path="res://Assets/StarForceFont.ttf" id="1_hte03"]
+
+[resource]
+font = ExtResource("1_hte03")
+font_size = 48
+font_color = Color(1, 1, 0, 1)
+outline_size = 18
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 32
+shadow_color = Color(0, 0, 0.870588, 1)
+shadow_offset = Vector2(0, 8)

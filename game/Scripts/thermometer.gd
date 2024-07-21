@@ -14,12 +14,16 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func shoot_fireball():
-	temperature += 20
+	temperature += 16
 
 func snowflake_collected():
-	temperature -= 30
+	temperature -= 32
 	if temperature < 5: temperature = 5
 	
+func tilt():
+	if temperature + 5 < too_hot:
+		temperature += 5
+		
 func log_temp():
 	while (true):	
 		await get_tree().create_timer(1).timeout

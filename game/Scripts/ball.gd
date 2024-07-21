@@ -11,6 +11,7 @@ const VELOCITY_LIMIT = 100
 @export var ui: UI
 
 var speed_up_factor := 1.01
+var tilt_velocity := 8
 var natural_speed_up := 0.001
 var start_position: Vector2
 var last_collider_id
@@ -24,12 +25,16 @@ func _ready():
 
 func _physics_process(delta):
 	natural_speed_up += 0.005
+	if tilt_direction != 0:
+		var l = velocity.length()
+		velocity.y += tilt_direction * tilt_velocity
+		velocity = velocity.normalized() * l
+		tilt_direction = 0
+	
 	var collision = move_and_collide(velocity * (ball_speed + natural_speed_up) * delta)
 	if (!collision):
 		entered_paddle = false
 		return
-	
-	
 		
 	var collider = collision.get_collider()
 	if (collider is Brick):
@@ -94,3 +99,6 @@ func paddle_collision(collider):
 		entered_paddle = true
 	velocity = (new_velocity).limit_length(VELOCITY_LIMIT)
 	if velocity.y > 0: velocity.y *= -1
+
+@onready var tilt_direction = 0.0 :
+	set (x) : tilt_direction = x;

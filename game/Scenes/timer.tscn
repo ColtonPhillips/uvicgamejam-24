@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://3v3relw2vb40"]
+
+[ext_resource type="Script" path="res://Scripts/timer.gd" id="1_d4sn0"]
+[ext_resource type="LabelSettings" uid="uid://bxa4a75bks2v8" path="res://Settings/timer_label_settings.tres" id="1_ufk67"]
+
+[node name="Timer" type="CanvasLayer"]
+script = ExtResource("1_d4sn0")
+
+[node name="CurrentLabel" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -725.0
+offset_top = -1057.0
+offset_right = -293.0
+offset_bottom = -1008.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+text = "110000 MS "
+label_settings = ExtResource("1_ufk67")
+horizontal_alignment = 1
+justification_flags = 0
+uppercase = true
+
+[node name="FastestLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1815.0
+offset_top = -1053.0
+offset_right = -1383.0
+offset_bottom = -1004.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+text = "110000 MS "
+label_settings = ExtResource("1_ufk67")
+horizontal_alignment = 1
+justification_flags = 0
+uppercase = true
