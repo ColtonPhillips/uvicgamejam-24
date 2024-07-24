@@ -5,7 +5,7 @@ class_name Brick
 signal brick_destroyed
 
 var level = 1
-var chance_to_spawn_power = 25
+var chance_to_spawn_power = 20
 
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D
@@ -21,7 +21,6 @@ var sprites: Array[Texture2D] = [
 
 func get_size():
 	return collision_shape_2d.shape.get_rect().size
-	
 
 func set_level(new_level: int):
 	if (new_level < 1): new_level = 1
@@ -32,9 +31,11 @@ func decrease_level():
 	if level > 1:
 		set_level(level - 1)
 	else: 
-		fade_out()
+		if not called_once: fade_out()
 		
+var called_once = false
 func fade_out():
+	called_once = true
 	%BreakSound.play()
 	collision_shape_2d.disabled = true
 	var tween = get_tree().create_tween()
@@ -52,6 +53,3 @@ func destroy():
 	
 func get_width():
 	return get_size().x
-
-	
-

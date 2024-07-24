@@ -14,15 +14,15 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func shoot_fireball():
-	temperature += 16
+	temperature += 24
 
 func snowflake_collected():
-	temperature -= 32
+	temperature -= 24
 	if temperature < 5: temperature = 5
 	
 func tilt():
-	if temperature + 5 < too_hot:
-		temperature += 5
+	if temperature + 7 < too_hot:
+		temperature += 7
 		
 func log_temp():
 	while (true):	

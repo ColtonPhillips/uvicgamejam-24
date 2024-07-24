@@ -54,6 +54,9 @@ func _input(event):
 		direction = Vector2.RIGHT
 	else:
 		direction = Vector2.ZERO
+	
+	if  is_broke_down:
+		direction = Vector2.ZERO
 		
 	if (direction != Vector2.ZERO or Input.is_action_just_pressed("shoot")) && !is_ball_started:
 		ball.start_ball()
@@ -80,6 +83,16 @@ func on_speed_up():
 
 func on_temperature_down():
 	thermometer.snowflake_collected()
+
+var is_broke_down = false
+func break_down():
+	self.modulate = Color(1,0,0,0.8)
+	is_broke_down = true
+	await get_tree().create_timer(2).timeout
+	self.modulate= Color(1,1,1,1)
+	is_broke_down = false
+func on_bomb_power():
+	break_down()
 
 var sprites: Array[Texture2D] = [
 	preload("res://Assets/PaddleCat.png"),

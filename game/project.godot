@@ -84,6 +84,7 @@ down={
 2d_physics/layer_4="brick"
 2d_physics/layer_5="powerup"
 2d_physics/layer_6="fireball"
+2d_physics/layer_7="bomb_blast"
 
 [rendering]
 
