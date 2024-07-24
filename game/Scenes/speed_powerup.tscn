@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://uabhhjpwpi50"]
 
-[ext_resource type="Script" path="res://Scripts/speed_powerup.gd" id="1_d6uf7"]
-[ext_resource type="Texture2D" uid="uid://mrq8ar1uloav" path="res://Assets/SpeedPower.png" id="1_r8y6o"]
-[ext_resource type="AudioStream" uid="uid://bprj6ovbaf1on" path="res://Assets/WaterDrop.ogg" id="3_w1qxh"]
+[ext_resource type="Script" path="res://Scripts/speed_powerup.gd" id="1_8eblg"]
+[ext_resource type="Texture2D" uid="uid://mrq8ar1uloav" path="res://Assets/SpeedPower.png" id="2_g0p2o"]
+[ext_resource type="AudioStream" uid="uid://bprj6ovbaf1on" path="res://Assets/WaterDrop.ogg" id="3_v77m0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nr32i"]
 radius = 21.5407
@@ -13,11 +13,11 @@ radius = 21.2132
 [node name="SpeedPowerup" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 2
-script = ExtResource("1_d6uf7")
+script = ExtResource("1_8eblg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.107477, 0.107477)
-texture = ExtResource("1_r8y6o")
+texture = ExtResource("2_g0p2o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nr32i")
@@ -26,7 +26,7 @@ shape = SubResource("CircleShape2D_nr32i")
 
 [node name="WaterDropSound" type="AudioStreamPlayer" parent="SFX"]
 unique_name_in_owner = true
-stream = ExtResource("3_w1qxh")
+stream = ExtResource("3_v77m0")
 volume_db = 5.0
 
 [node name="Area2D" type="Area2D" parent="."]

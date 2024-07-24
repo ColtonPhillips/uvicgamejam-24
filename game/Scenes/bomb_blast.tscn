@@ -1,22 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfuevxkxx08br"]
+[gd_scene load_steps=4 format=3 uid="uid://52v2snt8f86q"]
 
-[ext_resource type="Texture2D" uid="uid://dtbkfqpta6qvd" path="res://Assets/BombBlast.png" id="1_djskp"]
-[ext_resource type="Script" path="res://Scripts/bomb_blast.gd" id="2_x76ld"]
+[ext_resource type="Script" path="res://Scripts/bomb_blast.gd" id="1_60w6v"]
+[ext_resource type="Texture2D" uid="uid://dtbkfqpta6qvd" path="res://Assets/BombBlast.png" id="2_2dma7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ra0si"]
-radius = 47.0106
+[sub_resource type="CircleShape2D" id="CircleShape2D_13wen"]
+radius = 49.4773
 
 [node name="BombBlast" type="Area2D"]
 collision_layer = 0
 collision_mask = 8
-script = ExtResource("2_x76ld")
+script = ExtResource("1_60w6v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -5)
 scale = Vector2(0.42, 0.42)
-texture = ExtResource("1_djskp")
+texture = ExtResource("2_2dma7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ra0si")
+shape = SubResource("CircleShape2D_13wen")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
